@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Users List{% endblock %}
+
+{% block header %}
+<h1>ALL Users List</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Create New Post</h2>
+<form action="/users/{{ user.id }}/posts/new" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" name="title" placeholder="Enter a Title">
+    <br>
+    <label for="content">Content:</label>
+    <textarea name="content" placeholder="Enter Content"></textarea>
+    <br>
+    <label for="tags">Select Tags:</label>
+    <ul>
+        {% for tag in tags %}
+        <li>
+            <input type="checkbox" name="tags" value="{{ tag.id }}">
+            <label for="tags">{{ tag.name }}</label>
+        </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Add Post</button>
+</form>
+<form action="/users/{{ user.id }}">
+    <input type="submit" value="Cancel" />
+</form>
+{% endblock %}

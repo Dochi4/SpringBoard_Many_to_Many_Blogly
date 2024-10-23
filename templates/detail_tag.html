@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Users List{% endblock %}
+
+{% block header %}
+<h1>Tag Details</h1>
+<form action="/" id="home_button">
+    <input type="submit" value="Home" />
+</form>
+{% endblock %}
+
+{% block content %}
+
+<h2>{{tag.name}}</h2>
+
+<h3>Associated Posts</h3>
+<ul>
+    {% if tag.posts %}
+    {% for post in tag.posts %}
+    <li><a href="/users/{{ post.user.id }}/posts/{{ post.id }}">{{ post.title }}</a></li>
+    {% endfor %}
+    {% else %}
+    <li>No posts associated with this tag.</li>
+    {% endif %}
+</ul>
+
+
+<form action="/tags/{{tag.id}}/edit" id="edit_post" method="GET">
+    <input type="submit" value="Edit" />
+</form>
+
+<form action="/tags/{{tag.id}}/delete" id="delete_post" method="POST">
+    <input type="submit" value="Delete" />
+</form>
+
+<form action="/tags">
+    <input type="submit" value="Cancel" />
+</form>
+
+{% endblock %}
