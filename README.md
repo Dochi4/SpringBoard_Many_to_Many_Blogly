@@ -13,7 +13,6 @@ The core of this project is implementing a **Many-to-Many relationship** using a
 - **Advanced Tagging Engine:** Posts and Tags are linked via a `post_tags` association table, enabling users to categorize content dynamically.
 - **Automated Timestamps:** Server-side timestamping for all posts using `db.func.now()` for accurate data tracking.
 - **Developer-Friendly Tools:** Integrated with **Flask-DebugToolbar** for real-time request and SQL query analysis.
-
 ---
 
 ## 🛠️ Tech Stack
@@ -21,7 +20,6 @@ The core of this project is implementing a **Many-to-Many relationship** using a
 - **Database:** PostgreSQL, Flask-SQLAlchemy (ORM)
 - **Frontend:** Jinja2 Templates (Inheritance-based), HTML5, CSS3 (Bootstrap 5)
 - **Scripting:** jQuery, Axios (for future API expansion)
-
 ---
 
 ## 📂 Frontend Architecture: Template Inheritance
@@ -29,8 +27,6 @@ To ensure a scalable and maintainable UI, the project uses Jinja2 Template Inher
 
 - **Base Layout:** Manages global head metadata, Bootstrap 5 integration, and shared script libraries (jQuery, Axios).
 - **Block Overrides:** Specific templates use `{% extends %}` and `{% block %}` to override titles, headers, and body content dynamically based on the route.
-
-
 
 ---
 
@@ -59,9 +55,11 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 # Install dependencies
 pip install -r requirements.txt
 
+#Initialize & Seed Database:
 createdb blogly
-# Tables are auto-generated via db.create_all() inside the app context
-python3 app.py
+
+# Run the seed file to create tables and populate test data
+python3 seed.py
 
 # Run App:
 flask run
