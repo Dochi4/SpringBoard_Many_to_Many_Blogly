@@ -50,8 +50,7 @@ The schema is designed for high data integrity and efficient querying:
    ```bash
    git clone [https://github.com/Dochi4/SpringBoard_Many_to_Many_Blogly.git](https://github.com/Dochi4/SpringBoard_Many_to_Many_Blogly.git)
    cd SpringBoard_Many_to_Many_Blogly
-
-  ## Setup Environment
+## Setup Environment
 
 # Create a virtual environment
 python3 -m venv venv
@@ -63,3 +62,6 @@ pip install -r requirements.txt
 createdb blogly
 # Tables are auto-generated via db.create_all() inside the app context
 python3 app.py
+
+# Run App:
+flask run
